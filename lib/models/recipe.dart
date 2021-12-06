@@ -13,4 +13,7 @@ class Recipe{
     Recipe("Taco salad", "assets/taco.jpeg","Info about Taco salad"),
     Recipe("Pizza", "assets/pizza.jpeg","Info about Pizza"),
   ];
+
+
+  // nimadir o'zgarish bo'ldi
 }

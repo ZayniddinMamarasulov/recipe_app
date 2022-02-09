@@ -1,23 +1,40 @@
 import 'package:flutter/material.dart';
-import 'package:second_lesson/models/recipe.dart';
-import 'package:second_lesson/screens/second_page.dart';
+import 'package:second_lesson/models/food.dart';
 
-Widget recipeCard(BuildContext context, Recipe recipe) {
+Widget recipeCard(BuildContext context, Food food) {
   return InkWell(
     onTap: () {
-      Navigator.pushNamed(context, '/second', arguments: {'recipe': recipe});
+      // Navigator.pushNamed(context, '/second', arguments: {'recipe': food});
     },
     child: Card(
+      margin: const EdgeInsets.all(16),
       child: Column(
         children: [
-          Image.asset(recipe.imageUrl),
-          Text(
-            recipe.label,
-            style: const TextStyle(fontSize: 18),
+          Padding(
+            padding: const EdgeInsets.all(12.0),
+            child: Row(
+              children: [
+                Text(
+                  food.category!,
+                  textAlign: TextAlign.end,
+                  style: const TextStyle(
+                      fontSize: 18, fontWeight: FontWeight.bold),
+                ),
+              ],
+            ),
           ),
-          Text(
-            recipe.label,
-            style: const TextStyle(fontSize: 18),
+          Image(
+            image: NetworkImage(food.image!),
+            fit: BoxFit.fitWidth,
+            width: double.infinity,
+            alignment: Alignment.center,
+          ),
+          Padding(
+            padding: const EdgeInsets.all(12.0),
+            child: Text(
+              food.label!,
+              style: const TextStyle(fontSize: 18),
+            ),
           )
         ],
       ),
